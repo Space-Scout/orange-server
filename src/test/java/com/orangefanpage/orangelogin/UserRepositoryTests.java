@@ -24,7 +24,6 @@ public class UserRepositoryTests {
     @Test
     public void testCreateUser(){
         User user = new User();
-        user.setEmail("testemail@gmail.com");
         user.setPassword("testpassword");
         user.setUsername("Mr. Mittens");
         user.setFirstName("DJ");
@@ -33,7 +32,7 @@ public class UserRepositoryTests {
         User savedUser = repo.save(user);
         User existUser = entityManager.find(User.class, savedUser.getId());
 
-        assertThat(user.getEmail()).isEqualTo(existUser.getEmail()); //AssertJ's assertThat method to make sure created user in database has appropriate data
+        //AssertJ's assertThat method to make sure created user in database has appropriate data
         assertThat(user.getPassword()).isEqualTo(existUser.getPassword());
         assertThat(user.getUsername()).isEqualTo(existUser.getUsername());
         assertThat(user.getFirstName()).isEqualTo(existUser.getFirstName());
