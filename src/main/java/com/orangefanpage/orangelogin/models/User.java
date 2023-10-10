@@ -25,4 +25,7 @@ public class User {
     @Column(name = "username",nullable = false)
     private String username;
 
+    @Column(name = "linkedIn",nullable = true)
+    private String linkedIn;
+
 }

@@ -18,4 +18,12 @@ public class UserController {
     private List<User> getAllUsers(){
         return userRepo.findAll();
     }
+
+    //getUserByID
+    //createUser
+    //deleteUser
+    //updateUser
+    //updatefanpage
+    //updatefanpageSubject
+
 }
