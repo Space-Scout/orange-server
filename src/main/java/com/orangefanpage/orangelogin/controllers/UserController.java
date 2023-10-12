@@ -2,8 +2,11 @@ package com.orangefanpage.orangelogin.controllers;
 
 import com.orangefanpage.orangelogin.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,7 +22,13 @@ public class UserController {
         return userRepo.findAll();
     }
 
-    //getUserByID
+    @GetMapping("/{user_id}")
+    public User getUserById(@PathVariable ("user_id") long id) {
+        return userRepo.findById(id).orElse(null);
+    }
+
+//    @PostMapping("")
+//    public User createUser()
     //createUser
     //deleteUser
     //updateUser

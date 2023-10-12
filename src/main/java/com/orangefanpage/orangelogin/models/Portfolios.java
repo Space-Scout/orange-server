@@ -15,4 +15,8 @@ public class Portfolios {
 
     @Column(name = "portfolio_name", nullable = false)
     private String portfolioName;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user; //reference to user
 }

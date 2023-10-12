@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "fan_page")
+@Table(name = "fan_pages")
 public class FanPages {
 
     @Id
@@ -18,4 +18,8 @@ public class FanPages {
 
     @Column(name = "fan_page_URL", nullable = false)
     private String fanPageURL;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user; //reference to user
 }
