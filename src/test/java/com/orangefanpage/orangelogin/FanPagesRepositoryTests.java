@@ -1,9 +1,10 @@
 package com.orangefanpage.orangelogin;
 
-import com.orangefanpage.orangelogin.controllers.FanPagesRepository;
 import com.orangefanpage.orangelogin.models.FanPages;
 import com.orangefanpage.orangelogin.models.User;
-import com.orangefanpage.orangelogin.controllers.UserRepository;
+import com.orangefanpage.orangelogin.repositories.FanPagesRepository;
+import com.orangefanpage.orangelogin.repositories.UserRepository;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
