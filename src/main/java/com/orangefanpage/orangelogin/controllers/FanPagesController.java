@@ -1,11 +1,11 @@
 package com.orangefanpage.orangelogin.controllers;
 
 import com.orangefanpage.orangelogin.models.FanPages;
+import com.orangefanpage.orangelogin.models.Portfolios;
 import com.orangefanpage.orangelogin.repositories.FanPagesRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +18,18 @@ public class FanPagesController {
     @GetMapping("")
     private List<FanPages> getAllFanPages() {
         return fanPageRepo.findAll();
+    }
+
+    @PostMapping("")
+    public FanPages updateFanPage(@RequestBody FanPages fanPages) {
+        FanPages existingFanPage = fanPageRepo.findById(fanPages.getId()).get();
+        existingFanPage.setFanPageTitle(fanPages.getFanPageTitle());
+        existingFanPage.setFanPageURL(fanPages.getFanPageURL());
+        return fanPageRepo.save(existingFanPage);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteFanPage(@PathVariable long id) {
+        fanPageRepo.deleteById(id);
     }
 }

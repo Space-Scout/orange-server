@@ -5,8 +5,7 @@ import com.orangefanpage.orangelogin.models.User;
 import com.orangefanpage.orangelogin.repositories.PortfoliosRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,10 +13,23 @@ import java.util.List;
 public class PortfoliosController {
 
     @Autowired
-    private PortfoliosRepository portfolioRepo;
+    private PortfoliosRepository portfoliosRepo;
 
     @GetMapping("")
     private List<Portfolios> getAllPortfolios() {
-        return portfolioRepo.findAll();
+        return portfoliosRepo.findAll();
+    }
+
+    @PostMapping("")
+    public Portfolios updatePortfolio(@RequestBody Portfolios portfolios) {
+        Portfolios existingPortfolio = portfoliosRepo.findById(portfolios.getId()).get();
+        existingPortfolio.setPortfolioName(portfolios.getPortfolioName());
+        return portfoliosRepo.save(existingPortfolio);
+    }
+
+    //do we need this?
+    @DeleteMapping("/{id}")
+    public void deletePortfolio(@PathVariable long id) {
+        portfoliosRepo.deleteById(id);
     }
 }

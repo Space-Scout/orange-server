@@ -4,13 +4,8 @@ import com.orangefanpage.orangelogin.models.User;
 import com.orangefanpage.orangelogin.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,19 +21,27 @@ public class UserController {
     }
 
     @GetMapping("/{user_id}")
-    public User getUserById(@PathVariable ("user_id") long id){
+    public User getUserById(@PathVariable long id){
         return userRepo.findById(id).orElse(null);
     }
 
-    // @PostMapping("")
-    // public User createUser(@RequestBody User user) {
-    
-    // }
+    @PostMapping("/users")
+    public User createUser(@RequestBody User user) {
+        return userRepo.save(user);
+    }
 
-    //createUser
-    //deleteUser
-    //updateUser
-    //updatefanpage
-    //updatefanpageSubject
+    @PostMapping("/users")
+    public User updateUser(@RequestBody User user) {
+        User existingUser = userRepo.findById(user.getId()).get();
+        existingUser.setFirstName(user.getFirstName());
+        existingUser.setLastName(user.getLastName());
+        existingUser.setUsername(user.getUsername());
+        existingUser.setLinkedIn(user.getLinkedIn());
+        return userRepo.save(existingUser);
+    }
 
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable long id) {
+        userRepo.deleteById(id);
+    }
 }
