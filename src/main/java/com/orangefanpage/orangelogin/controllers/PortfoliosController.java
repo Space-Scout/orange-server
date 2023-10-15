@@ -1,3 +1,4 @@
+/*
 package com.orangefanpage.orangelogin.controllers;
 
 import com.orangefanpage.orangelogin.models.Portfolios;
@@ -33,3 +34,4 @@ public class PortfoliosController {
         portfoliosRepo.deleteById(id);
     }
 }
+*/

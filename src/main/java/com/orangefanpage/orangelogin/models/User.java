@@ -31,16 +31,16 @@ public class User {
     @Column(name = "linkedIn",nullable = true)
     private String linkedIn;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     //mappedBy = bidirectional relationship (owning side is on the many side of relationship)
     @JoinColumn(name = "portfolios_id")
     private List<Portfolios> portfolios =  new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,  mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "fan_pages_id")
     private List<FanPages> fanPages = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,  mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "side_projects_id")
     private List<SideProjects> sideProjects = new ArrayList<>();
 }

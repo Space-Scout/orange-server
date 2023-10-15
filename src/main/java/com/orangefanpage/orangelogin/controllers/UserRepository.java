@@ -1,4 +1,4 @@
-package com.orangefanpage.orangelogin.repositories;
+package com.orangefanpage.orangelogin.controllers;
 
 
 import com.orangefanpage.orangelogin.models.User;

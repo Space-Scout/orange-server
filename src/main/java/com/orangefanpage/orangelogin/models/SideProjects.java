@@ -18,8 +18,8 @@ public class SideProjects {
     @Column(name = "side_project_URL", nullable = false)
     private String sideProjectURL;
 
-    @ManyToOne (fetch = FetchType.LAZY)
+/*    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User user; //reference to user
+    private User user; //reference to user*/
 
 }

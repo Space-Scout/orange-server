@@ -1,10 +1,8 @@
 package com.orangefanpage.orangelogin.controllers;
 
 import com.orangefanpage.orangelogin.models.User;
-import com.orangefanpage.orangelogin.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +28,7 @@ public class UserController {
         return userRepo.save(user);
     }
 
-    @PostMapping("/users")
+    @PostMapping("/test")
     public User updateUser(@RequestBody User user) {
         User existingUser = userRepo.findById(user.getId()).get();
         existingUser.setFirstName(user.getFirstName());
