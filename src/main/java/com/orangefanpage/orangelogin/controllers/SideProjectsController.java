@@ -1,4 +1,3 @@
-/*
 package com.orangefanpage.orangelogin.controllers;
 
 import com.orangefanpage.orangelogin.models.FanPages;
@@ -16,12 +15,12 @@ public class SideProjectsController {
     @Autowired
     private SideProjectsRepository sideProjectsRepo;
 
-    @GetMapping("")
+    @GetMapping("/sideprojects")
     private List<SideProjects> getAllSideProjects() {
         return sideProjectsRepo.findAll();
     }
 
-    @PostMapping("")
+    @PostMapping("/sideprojects")
     public SideProjects updateSideProject(@RequestBody SideProjects sideProjects) {
         SideProjects existingSideProjects = sideProjectsRepo.findById(sideProjects.getId()).get();
         existingSideProjects.setSideProjectTitle(sideProjects.getSideProjectTitle());
@@ -29,9 +28,9 @@ public class SideProjectsController {
         return sideProjectsRepo.save(existingSideProjects);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/sideprojects/{id}")
     public void deleteSideProjects(@PathVariable long id) {
         sideProjectsRepo.deleteById(id);
     }
 }
-*/
+

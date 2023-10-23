@@ -13,12 +13,12 @@ public class UserController {
     @Autowired
     private UserRepository userRepo;
 
-    @GetMapping("")
+    @GetMapping("/users")
     private List<User> getAllUsers(){
         return userRepo.findAll();
     }
 
-    @GetMapping("/{user_id}")
+    @GetMapping("/users/{user_id}")
     public User getUserById(@PathVariable long id){
         return userRepo.findById(id).orElse(null);
     }
@@ -38,7 +38,7 @@ public class UserController {
         return userRepo.save(existingUser);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable long id) {
         userRepo.deleteById(id);
     }

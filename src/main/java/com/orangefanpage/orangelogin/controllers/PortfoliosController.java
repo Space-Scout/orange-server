@@ -1,4 +1,3 @@
-/*
 package com.orangefanpage.orangelogin.controllers;
 
 import com.orangefanpage.orangelogin.models.Portfolios;
@@ -16,22 +15,21 @@ public class PortfoliosController {
     @Autowired
     private PortfoliosRepository portfoliosRepo;
 
-    @GetMapping("")
+    @GetMapping("/portfolios")
     private List<Portfolios> getAllPortfolios() {
         return portfoliosRepo.findAll();
     }
 
-    @PostMapping("")
+    @PostMapping("/portfolios")
     public Portfolios updatePortfolio(@RequestBody Portfolios portfolios) {
         Portfolios existingPortfolio = portfoliosRepo.findById(portfolios.getId()).get();
         existingPortfolio.setPortfolioName(portfolios.getPortfolioName());
         return portfoliosRepo.save(existingPortfolio);
     }
 
-    //do we need this?
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/portfolios/{id}")
     public void deletePortfolio(@PathVariable long id) {
         portfoliosRepo.deleteById(id);
     }
 }
-*/
+

@@ -19,7 +19,7 @@ public class FanPages {
     @Column(name = "fan_page_URL", nullable = false)
     private String fanPageURL;
 
-/*    @ManyToOne (fetch = FetchType.LAZY)
+   @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user; //reference to user*/
 }

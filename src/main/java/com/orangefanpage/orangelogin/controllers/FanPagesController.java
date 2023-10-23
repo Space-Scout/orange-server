@@ -1,4 +1,4 @@
-/*
+
 package com.orangefanpage.orangelogin.controllers;
 
 import com.orangefanpage.orangelogin.models.FanPages;
@@ -16,12 +16,12 @@ public class FanPagesController {
     @Autowired
     private FanPagesRepository fanPageRepo;
 
-    @GetMapping("")
+    @GetMapping("/fanpages")
     private List<FanPages> getAllFanPages() {
         return fanPageRepo.findAll();
     }
 
-    @PostMapping("")
+    @PostMapping("/fanpages")
     public FanPages updateFanPage(@RequestBody FanPages fanPages) {
         FanPages existingFanPage = fanPageRepo.findById(fanPages.getId()).get();
         existingFanPage.setFanPageTitle(fanPages.getFanPageTitle());
@@ -29,9 +29,8 @@ public class FanPagesController {
         return fanPageRepo.save(existingFanPage);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/fanpages/{id}")
     public void deleteFanPage(@PathVariable long id) {
         fanPageRepo.deleteById(id);
     }
 }
-*/
